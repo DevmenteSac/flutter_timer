@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Semana de Reseteo'),
+          title: const Text('Sistema de Timer'),
         ),
         body: const Center(
           child: CountdownScreen(),

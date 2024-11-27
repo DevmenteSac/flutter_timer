@@ -2,7 +2,7 @@
 
 En este proyecto se implementa una funcionalidad de cuenta regresiva(countdown) en Flutter que calcula fechas relativas como el tiempo hasta el próximo lunes, el tiempo hasta el siguiente día a medianoche, y verifica si han pasado ciertos días desde una fecha dada. Utiliza el formato UTC para asegurar la consistencia de los cálculos en todas las zonas horarias. 
 
-Este Timer es eficiente y para usos no exhaustivos, es útil para cuando se necesite usar timer para desencadenar acciones o mostrar tiempos de la forma más eficiente sin necesidad de tener corriendo algo en background.
+Este Timer es eficiente y para usos no exhaustivos, es útil para cuando se necesite usar timer para desencadenar acciones o mostrar tiempos de la forma más eficiente sin necesidad de tener corriendo algo en background. Usar siempre métodos como DateTime.utc() o DateTime.now().toUtc() para usar horarios globales.
 
 ![Screen Timer](/assets/Captura.PNG)
 
