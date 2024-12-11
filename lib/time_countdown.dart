@@ -89,4 +89,27 @@ class TimeCountdown {
     // Si la diferencia es negativa, significa que ya pasaron 14 días
     return daysRemaining > 0 ? daysRemaining : 0;
   }
+
+  // Metodos dinamicos para cualquier dia
+  bool hasXDaysPassed(DateTime date, int days) {
+    final now = DateTime.now().toUtc();
+    final difference = now.difference(date);
+
+    // Verificamos si han pasado al menos X días
+    return difference.inDays >= days;
+  }
+
+  // Se debe pasar el date en horario UTC
+  int calculateDaysUntilXDaysFrom(DateTime date, int days) {
+    final now = DateTime.now().toUtc(); // Fecha y hora actuales
+
+    // Calcular la fecha que corresponde a X días después de la fecha dada
+    DateTime fourteenDaysLater = date.add(Duration(days: days)).toUtc();
+
+    // Calcular la diferencia en días entre hoy y esa fecha
+    int daysRemaining = fourteenDaysLater.difference(now).inDays;
+
+    // Si la diferencia es negativa, significa que ya pasaron X días
+    return daysRemaining > 0 ? daysRemaining : 0;
+  }
 }

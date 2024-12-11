@@ -14,7 +14,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
     // Se inicializa la clase TimeCountdown
     final TimeCountdown timeCountdown = TimeCountdown();
 
-    DateTime dateToCheck = DateTime(2024, 11, 27); // Fecha de ejemplo
+    DateTime dateToCheck = DateTime(2024, 12, 10); // Fecha de ejemplo
     DateTime dateNowUtc = DateTime.now().toUtc(); // Fecha actual en utc
 
     // para ver si estan en la misma semana o dia
@@ -24,9 +24,13 @@ class _CountdownScreenState extends State<CountdownScreen> {
     // para ver si han pasado 14 dias
     bool has14DaysPassed = timeCountdown.has14DaysPassed(dateToCheck);
 
+    int days = 3;
+    bool hasXDaysPassed = timeCountdown.hasXDaysPassed(dateToCheck, days);
+
     debugPrint("booleano week: $isSameWeek");
     debugPrint("booleano day: $isSameDay");
     debugPrint("booleano has14: $has14DaysPassed");
+    debugPrint("booleano hasX: $hasXDaysPassed");
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -45,6 +49,11 @@ class _CountdownScreenState extends State<CountdownScreen> {
         // para acceder a los dias restantes para llegar a 14 dias
         Text(
           'Faltan ${timeCountdown.calculateDaysUntil14DaysFrom(dateToCheck)} dias para que terminen los 14 dias',
+          style: const TextStyle(fontSize: 24),
+        ),
+        // para acceder a los dias restantes para llegar a X dias
+        Text(
+          'Faltan ${timeCountdown.calculateDaysUntilXDaysFrom(dateToCheck, days)} dias para que terminen los $days dias',
           style: const TextStyle(fontSize: 24),
         ),
         isSameWeek
